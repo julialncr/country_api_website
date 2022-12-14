@@ -97,9 +97,8 @@ i {
   padding: 10px 14px;
   width: 100%;
   border-radius: 5px;
-  background-color: var(--bgColor);
   cursor: pointer;
-  background: var(--countrybgColor);
+  background-color: var(--bgColor);
 }
 .drop p {
   margin: 5px 0;
@@ -183,11 +182,17 @@ i {
 }
 .modalInfo{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
 }
 .rightModal h1{
     margin: 10px;
     font-size: 40px;
+}
+.innerRight.inner {
+  width: 50%;
+}
+.innerLeft.inner {
+  width: 50%;
 }
 .inner p>strong{
     font-weight: 600;
