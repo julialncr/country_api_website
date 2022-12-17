@@ -6,6 +6,13 @@ const search = document.querySelector(".search");
 const toggle = document.querySelector(".toggle");
 const moon = document.querySelector(".moon");
 
+function getCurrency(currency) {
+  console.log(currency);
+  const keys = Object.keys(currency);
+  console.log(keys);
+  return currency[keys[0]].name;
+}
+
 async function getCountry() {
   const url = await fetch("https://restcountries.com/v3.1/all");
   const res = await url.json();
@@ -74,7 +81,7 @@ toggle.addEventListener("click", () => {
 const countryModal = document.querySelector(".countryModal");
 function showCountryDetail(data) {
   countryModal.classList.toggle("show");
-  countryModal.innerHTML = `<button class="back">Back</button>
+  countryModal.innerHTML = `<button class="back"><i class="fa-solid fa-arrow-left"></i>   Back</button>
     <div class="modal">
       <div class="leftModal">
         <img src="${data.flags.svg}" alt="">
@@ -90,7 +97,9 @@ function showCountryDetail(data) {
               <p><strong>Capital: </strong>${data.capital}</p>
             </div>
             <div class="innerRight inner">
-              <p><strong>FIFA Abbreviation: </strong>${data.fifa}</p>
+              <p><strong>Currencies: </strong>${getCurrency(
+                data.currencies
+              )}</p>
               <p><strong>Area: </strong>${data.area}</p>
               <p><strong>Top Level Domain: </strong>${data.tld}</p>
             </div>
@@ -102,4 +111,3 @@ function showCountryDetail(data) {
     countryModal.classList.toggle("show");
   });
 }
-
